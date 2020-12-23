@@ -1,0 +1,134 @@
+header {
+    background-color: #F4F4FF;
+
+    .container {
+        height: 120px;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    nav {
+        width: 450px;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+            line-height: 30px;
+        }
+
+        a:hover {
+            color: #1174ff;
+        }
+    }
+
+    .logo-and-name {
+        flex-direction: column;
+        align-items: center;
+        pointer-events: none;
+
+        h1 {
+            font-size: 27px;
+            color: #e4c997;
+            text-shadow: 0.5px 0.4px 1px black;
+        }
+
+        img {
+            width: 180px;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+
+    .social-links {
+        width: 80px;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+            line-height: 30px;
+            width: max-content;
+        }
+
+        i:hover {
+            font-size: 29px;
+        }
+
+        .fa-facebook-square:hover {
+            color: #114abb;
+        }
+
+        .fa-youtube:hover {
+            color: #EA3323;
+        }
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    header {
+
+        .container {
+            height: 90px;
+        }
+
+        nav {
+            width: 100vw;
+            position: fixed;
+            left: -100%;
+            top: 90px;
+            transition: all .5s ease;
+            flex-direction: column;
+            height: max-content;
+
+            a {
+                font-size: 25px;
+                line-height: 50px;
+
+                &:hover {
+                    color: black;
+                }
+            }
+        }
+
+        .nav-open {
+            left: 0;
+            background-color: rgba($color: #F4F4FF, $alpha: .86);
+            z-index: 2;
+        }
+
+        .logo-and-name {
+            width: 150px;
+
+            h1 {
+                font-size: 2vh;
+            }
+
+            img {
+                width: 100px;
+            }
+        }
+
+        .social-links {
+            margin-right: 5px;  
+            
+            .fa-facebook-square{
+                color: #114abb;
+                }
+    
+            .fa-youtube {
+                color: #EA3323;
+                }
+            }
+
+            i {
+                font-size: 25px;
+                
+                &:hover {
+                    color: inherit;
+                    font-size: 25px;
+                }
+        }
+    }
+}
