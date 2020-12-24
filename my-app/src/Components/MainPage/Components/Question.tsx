@@ -1,17 +1,13 @@
-import { useState } from "react"
-
 export const Question = () => {
-
-    const [visible, setVisible] = useState(" ")
     
     const formSubmit = () => {
-        setVisible("visible")
+
     }
 
     return (
         <section className="question">
             <div className="container">
-                <h2>Возникли вопросы? <br/> Есть предложения?</h2>
+                <h2>Возникли вопросы или eсть предложения?</h2>
                 <form className="mail">
                     <p>Oставьте свой e-mail - мы обязательно с вами свяжемся!</p>
                     <div className="input-button flex">

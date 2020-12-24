@@ -31,7 +31,7 @@
 
         h1 {
             color: white;
-            text-shadow: 0 0 3.8px black;
+            text-shadow: 0 2px 7px black;
             font-size: 72px;
             text-align: center;
             width: 750px;
@@ -86,7 +86,7 @@
             height: 50px;
             border-radius: 50px;
             border: 1px solid #26272D;
-            margin: 50px;
+            margin: 30px;
             transition: all .6s ease;
 
             &:hover {
@@ -165,7 +165,7 @@
 
         h2 {
             text-align: center;
-            margin: 0 auto 20px;
+            margin: 0 auto 10px;
 
         }
 
@@ -198,6 +198,7 @@
             button {
                 margin-left: 20px;
                 text-align: center;
+                padding: 0;
                 border: 1px solid black;
                 border-radius: 40px;
                 width: 110px;
@@ -223,6 +224,20 @@
 
         .logo-container {
             height: 300px;
+
+            img {
+                animation-name: imageAppears;
+                animation-duration: 2s;
+            }
+    
+            @keyframes imageAppears {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
         }
 
         .banner {
@@ -251,10 +266,10 @@
 
             @keyframes parts {
                 from {
-                    right: -100%;
+                    opacity: 0;
                 }
                 to {
-                    right: 0;
+                    opacity: 1;
                 }
             }
     
@@ -283,8 +298,8 @@
         }
         
         .media-features {
-            padding-bottom: 40px;
-    
+            padding-bottom: unset;
+
             h2 {
                 width: 96vw;
                 font-size: 4vh;
@@ -301,5 +316,23 @@
             }
     
         }
+
+        .question {
+            padding: 0;
+            padding-bottom: 20px;
+
+            form {
+                height: 120px;
+            }
+
+            h2 {
+                font-size: 4vh;
+            }
+
+            p {
+                margin-bottom: 20px;
+            }
+        }
     }
-}
+
+} 

@@ -51,6 +51,7 @@ header {
 
         a {
             line-height: 32px;
+            text-align: center;
             width: 29px;
         }
 
@@ -124,15 +125,15 @@ header {
             .fa-youtube {
                 color: #EA3323;
                 }
-            }
 
-            i {
-                font-size: 25px;
-                
-                &:hover {
-                    color: inherit;
+                i {
                     font-size: 25px;
-                }
-        }
+                    
+                    &:hover {
+                        color: inherit;
+                        font-size: 25px;
+                    }
+            }
+            }   
     }
 }
