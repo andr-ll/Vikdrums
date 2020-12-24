@@ -7,6 +7,7 @@ body {
   font-family: 'Nunito', sans-serif;
   font-size: 20px;
   color: black;
+  background-color: #F4F4FF;
 }
 
 h1, h2, h3, p {
@@ -32,11 +33,12 @@ h2 {
 }
 
 .container {
-  width: 1100px;
+  width: 1024px;
   margin: 0 auto;
 }
 
 a {
+  background-color: transparent;
   text-decoration: none;
   color: black;
   font-family: 'Nunito', sans-serif;;
@@ -45,7 +47,16 @@ a {
 
   &:hover {
       cursor: pointer;
+      background-color: transparent;
+      outline: transparent;
   }
+
+  &:focus,
+  &:active {
+    background-color: transparent;
+    outline: transparent;
+  }
+
 }
 
 button {

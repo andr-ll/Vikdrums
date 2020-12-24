@@ -31,22 +31,22 @@ export const Header = () => {
                 </button>
 
                 <nav className={`flex ${navOpen}`}>
-                    <Link to="/">Главная</Link>
-                    <Link to="/video">Видео</Link>
-                    <Link to="/parts">Ноты</Link>
-                    <Link to="/minus">Минус</Link>
-                    <Link to="/plus">Плюс</Link>
-                    <Link to="/about">О Vikdrums</Link>
+                    <Link to="/" onClick={navOpener}>Главная</Link>
+                    <Link to="/video" onClick={navOpener}>Видео</Link>
+                    <Link to="/parts" onClick={navOpener}>Ноты</Link>
+                    <Link to="/minus" onClick={navOpener}>Минус</Link>
+                    <Link to="/plus" onClick={navOpener}>Плюс</Link>
+                    <Link to="/about" onClick={navOpener}>О Vikdrums</Link>
                 </nav>
                 <div className="logo-and-name flex">
                     <h1>Vikdrums.com.ua</h1>
                     <img src="./assets/img/sticks.png" alt="img"/>
                 </div> 
                 <div className="social-links flex">
-                    <a href="">
+                    <a href="http://facebook.com" target="blank">
                         <i className="fab fa-facebook-square"></i>
                     </a>
-                    <a href="">
+                    <a href="http://youtube.com" target="blank">
                         <i className="fab fa-youtube"></i>
                     </a>
                 </div>
