@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AboutParts } from './Components/AboutParts'
 import { AudioFeatures } from './Components/MediaFeatures';
+import { Question } from './Components/Question'
 import './MainPage.scss'
 
 export const MainPage = () => {
@@ -21,6 +22,7 @@ export const MainPage = () => {
             </div>
             <AboutParts scroll={windowScroll}/>
             <AudioFeatures scroll={windowScroll}/>
+            <Question />
         </section>
     )
 }

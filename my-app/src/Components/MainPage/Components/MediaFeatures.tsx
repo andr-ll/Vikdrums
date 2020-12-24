@@ -19,26 +19,26 @@ export const AudioFeatures = (props: AudioFeaturesProps) => {
         <section className="media-features">
             <div className="container">
                 <h2>
-                    Аудио треки с барабанами и без, <br /> а также видео
+                    Аудио с дорожкой барабанов и без, <br /> а также видео
                     </h2>
                 <div className="media-cards flex" style={{opacity: props.scroll < scrollValue ? "0" : "1"}}>
                     <MediaCard
                         class={"fas fa-drum"}
                         header={"Слушай оригиналы песен"}
                         link={"plus"}
-                        paragraph='В разделе "Плюс" собраны аудио записи, с точными партиями.'
+                        paragraph='В разделе "Плюс" собраны оригинальные аудио записи с барабанными партиями.'
                     />
                     <MediaCard
                         class={"fas fa-volume-mute"}
                         header={"Занимайся с треком без барабанов"}
                         link={"minus"}
-                        paragraph='В большенстве записей добавлен метроном. Это поможет ориентироваться в песне'
+                        paragraph='В большенстве записей добавлен метроном. Это поможет ориентироваться в песне.'
                     />
                     <MediaCard
                         class={"fab fa-youtube"}
                         header={"Застрял? Проверяй на YouTube!"}
                         link={"video"}
-                        paragraph='Если не знаешь как играть то или инное место - просто посмотри видео!'
+                        paragraph='Если не знаешь как сыграть какое-то место - просто посмотри видео!'
                     />
                 </div>
             </div>
