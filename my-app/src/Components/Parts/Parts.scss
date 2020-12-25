@@ -1,3 +1,150 @@
+.parts {
+
+    .container {
+        margin: 50px auto;
+    }
+
+    .parts-container {
+        margin-bottom: 50px;
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .grid {
+            grid-template-columns: repeat(auto-fit, 150px);
+            grid-template-rows: repeat(auto-fit, 200px);
+            grid-gap: 15px;
+        }
+
+        .part-wrapper {
+            border: 1px solid black;
+            border-radius: 30px;
+
+            &:hover {
+                background-color: #267DF4;
+                color: white;
+            }
+        }
+
+        .part {
+            height: 100%;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            
+            
+
+            img {
+                height: 120px;
+                object-fit: contain;
+                object-position: center;
+            }
+
+        }
+    }
+
+    .full-screen {
+        justify-content: space-between;
+
+        img {
+            height: 700px;
+        }
+
+        .actions {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+
+            h2 {
+                margin-bottom: 20px;
+            }
+
+            a {
+                width: 120px;
+                height: 40px;
+                border: 1px solid black;
+                border-radius: 20px;
+                text-align: center;
+                line-height: 40px;
+
+                &:hover {
+                    background-color: #267DF4;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+
 @media (max-width: 900px) {
+    .parts {
+     
+        .container {
+            margin: 0px auto;
+        }
+
+        .parts-container {
+            h2 {
+                font-size: 4vh;
+                text-align: center;
+            }
+
+            .grid {
+                grid-auto-columns: 150px;
+                grid-auto-rows: 200px;
+                justify-content: center;
+            }
+        }
+
+        .full-screen {
+            flex-direction: column;
+
+            a {
+                margin-left: 20px;
+                margin-bottom: 20px;
+
+                i {
+                    font-size: 30px;
+                }
+            }
     
+            img {
+                height: 400px;
+                object-fit: contain;
+            }
+    
+            .actions {
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                width: 96vw;
+                height: 100px;
+    
+                h2 {
+                    font-size: 3.4vh;
+                    margin-bottom: unset;
+                }
+    
+                a {
+                    width: 120px;
+                    height: 40px;
+                    border: 1px solid black;
+                    border-radius: 20px;
+                    text-align: center;
+                    line-height: 40px;
+                    margin-left: unset;
+                    margin-bottom: unset;
+    
+                    &:hover {
+                        background-color: #267DF4;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
 }
