@@ -11,8 +11,7 @@ import { Footer } from './Components/Footer/Footer';
 import { MainPage } from './Components/MainPage/MainPage';
 import { Video } from './Components/Video/Video';
 import { Parts } from './Components/Parts/Parts';
-import { Minus } from './Components/Minus/Minus';
-import { Plus } from './Components/Plus/Plus';
+import { Audio } from './Components/Audio/Audio';
 import { About } from './Components/About/About';
 import { PartTemplateData } from './Components/Parts/Components/PartTemplate';
 import { FullScreen } from './Components/FullScreen/FullScreen';
@@ -43,11 +42,8 @@ export default function App() {
         <Route path="/parts">
           <Parts handlers={{onPartChange}}/>
         </Route>
-        <Route path="/minus">
-          <Minus />
-        </Route>
-        <Route path="/plus">
-          <Plus />
+        <Route path="/audio">
+          <Audio />
         </Route>
         <Route path="/about">
           <About />

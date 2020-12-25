@@ -33,8 +33,7 @@ export const Header = () => {
                 <nav className={`flex ${navOpen}`}>
                     <Link to="/" onClick={navOpener}>Главная</Link>
                     <Link to="/parts" onClick={navOpener}>Ноты</Link>
-                    <Link to="/plus" onClick={navOpener}>Плюс</Link>
-                    <Link to="/minus" onClick={navOpener}>Минус</Link>
+                    <Link to="/audio" onClick={navOpener}>Аудио</Link>
                     <Link to="/video" onClick={navOpener}>Видео</Link>
                     <Link to="/about" onClick={navOpener}>О Vikdrums</Link>
                 </nav>
