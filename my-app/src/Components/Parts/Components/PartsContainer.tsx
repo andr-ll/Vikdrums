@@ -6,7 +6,7 @@ interface PartsContainerProps {
     handlers: PartsHandlers
 }
 
-interface PartsHandlers {
+export interface PartsHandlers {
     onPartChange: (part: PartTemplateData) => void
 }
 
