@@ -18,7 +18,6 @@ import { FullScreen } from './Components/FullScreen/FullScreen';
 
 export default function App() {
 
-
   const [currentPart, setCurrentPart] = useState<PartTemplateData>({
     link: "default",
     src: "default",
@@ -28,9 +27,6 @@ export default function App() {
   const onPartChange = (part: PartTemplateData) => {
     setCurrentPart(part)
   }
-
-
-
 
   return (
     <Router>

@@ -1,12 +1,20 @@
 .audio {
+    .player-container {
+        width: 100%;
+        background-color: #F4F4FF;
+        position: sticky;
+        top: 0;
 
-    .player {
-        width: 90%;
-        outline: transparent;
-        border: 1px solid black;
-        border-radius: 50px;
+        .player {
+            width: 90%;
+            outline: transparent;
+            border: 1px solid black;
+            border-radius: 50px;
+            margin: 20px auto;
+        }
+    
     }
-
+    
     .container {
         flex-direction: column;
         align-items: center;
@@ -17,7 +25,7 @@
         }
 
         .files {
-            padding-top: 40px;
+            margin-top: 20px;
         }
 
         .collection-wrapper {
@@ -97,6 +105,8 @@
                         border-radius: 20px;
                         width: 80px;
                         font-size: 14px;
+                        text-align: center;
+                        padding: 0;
 
                         &:hover {
                             background-color: #267DF4;
@@ -111,5 +121,34 @@
 
 
 @media (max-width: 900px) {
+    .audio {
+
+        .player-container {
+            .player {
+                width: 94%;
+                outline: transparent;
+                border: unset;
+                border-radius: unset;
+            }
+        }
     
+        .container {
+            h3 {
+                text-align: center;
+            }
+    
+            .grid {
+                grid-gap: 15px;
+                padding-left: unset;
+                justify-content: center;
+            }
+    
+            .audio-wrapper {    
+                .plus,
+                .minus {
+                    width: 100%;
+                }
+            }
+        }
+    }
 }

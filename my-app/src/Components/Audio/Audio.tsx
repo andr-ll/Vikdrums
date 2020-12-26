@@ -6,27 +6,31 @@ import { Collection } from './Components/Collection';
 
 export const Audio = () => {
 
-const [audioSrc, setAudioSrc] = useState(" ");
+    const [audioSrc, setAudioSrc] = useState(" ");
 
-const onAudioSrcChange = (src: string) => {
-    setAudioSrc(src)
-}
+    const onAudioSrcChange = (src: string) => {
+        setAudioSrc(src)
+    }
 
-const AudioFiles = AudioData.map(item => <Collection 
-    name={item.name} 
-    audio={item.audio} 
-    handlers={{onAudioSrcChange}}
+    const AudioFiles = AudioData.map(item => <Collection
+        name={item.name}
+        audio={item.audio}
+        handlers={{ onAudioSrcChange }}
+        key={item.id}
     />)
 
     return (
         <section className="audio">
             <div className="container flex">
-                <ReactAudioPlayer
-                    className="player"
-                    src={audioSrc}
-                    autoPlay
-                    controls
-                />
+                <div className="player-container">
+                    <ReactAudioPlayer
+                        className="player"
+                        style={{ display: audioSrc === " " ? "none" : "block" }}
+                        src={audioSrc}
+                        autoPlay
+                        controls
+                    />
+                </div>
                 <div className="files flex">
                     {AudioFiles}
                 </div>

@@ -16,6 +16,7 @@ export const Collection = (props: CollectionProps) => {
     const AudioContent = props.audio.map(item => <AudioWrapper 
         data={item} 
         handlers={props.handlers.onAudioSrcChange} 
+        key={item.id}
         />)
 
     return (
