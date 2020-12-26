@@ -2,6 +2,9 @@
 
     .player {
         width: 90%;
+        outline: transparent;
+        border: 1px solid black;
+        border-radius: 50px;
     }
 
     .container {
@@ -26,13 +29,16 @@
         }
 
         .grid {
-            grid-template-columns: repeat(auto-fit, 300px);
-            grid-auto-rows: 200px;
-            grid-gap: 15px;
+            grid-template-columns: repeat(auto-fit, 160px);
+            grid-auto-rows: 250px;
+            grid-gap: 10px;
+            padding-left: 10px;
+
         }
 
         .audio-wrapper {
             flex-direction: column;
+            justify-content: center;
             border: 1px solid black;
             border-radius: 30px;
 
@@ -41,44 +47,63 @@
             }
 
             h3 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 text-align: center;
-                font-size: 22px;
-                line-height: 40px;
+                font-size: 16px;
+                height: 50px;
                 transition: all .4s ease;
+                border-bottom: 1px solid black;
             }
 
             .flex {
-                flex-direction: row;
-                justify-content: space-between;
-                height: 70%;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                height: 190px;
             }
 
             .plus,
             .minus {
                 display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-                width: 50%;
+                justify-content: space-around;
                 text-align: center;
+                width: 90%;
 
                 i {
-                    font-size: 44px;
+                    font-size: 30px;
                 }
 
+                h4 {
+                    font-size: 16px;
+                    text-align: center;
+                    transition: all .4s ease;
+                }
 
-                a, button {
-                    border: 1px solid black;
-                    border-radius: 20px;
-                    width: 100px;
+                &:hover {
+                    color: #267DF4;
+                }
 
-                    &:hover {
-                        background-color: #267DF4;
-                        color: white;
+                .buttons {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    align-items: center;
+                    color: black;
+
+                    a, button {
+                        border: 1px solid black;
+                        border-radius: 20px;
+                        width: 80px;
+                        font-size: 14px;
+
+                        &:hover {
+                            background-color: #267DF4;
+                            color: white;
+                        }
                     }
                 }
-
-                
             }
         }
     }
