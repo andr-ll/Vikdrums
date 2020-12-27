@@ -1,5 +1,59 @@
+.video {
+    .container {
+        justify-content: space-between;
+        position: relative;
+
+        .content {
+            flex-direction: column;
+        }
+
+        .video-player {
+            position: sticky;
+            top: 50vh;
+        }
+
+        .video-collection {
+            flex-direction: column;
+            position: relative;
+
+            h3 {
+                font-size: 22px;
+                text-align: left;
+                transition: all .4s ease;
+                margin-bottom: 10px;
+                line-height: 25px;
+
+
+                &:hover {
+                    cursor: pointer;
+                    color: #267DF4;
+                }
+            }
+            
+            .list {
+                top: 25px;
+                opacity: 0;
+                height: 0;
+                pointer-events: none;
+                transition: all .4s ease; 
+                margin-bottom: 10px;
+            }
+
+            .visible {
+                opacity: 1;
+                height: 250px;
+                pointer-events: all;
+            }
+        }
+    }
+
+
+}
+
 
 
 @media (max-width: 900px) {
+
+
     
 }
