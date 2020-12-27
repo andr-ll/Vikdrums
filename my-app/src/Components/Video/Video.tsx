@@ -1,12 +1,20 @@
+import { useState } from 'react';
 import VideoData from '../../Data/VideoData';
 import { Collections } from './Components/Collections';
 import './Video.scss';
 
 export const Video = () => {
 
+    const [src, setSrc] = useState("https://www.youtube.com/embed/EuSqrA1TG1U")
+
+    const onSrcChange = (newSrc: string) => {
+        setSrc(newSrc)
+    }
+
     const videoContent = VideoData.map(item => <Collections 
                             collection={item.collection} 
                             content={item.content}
+                            handlers={{onSrcChange}}
                             key={item.id}
                             />)
 
@@ -18,9 +26,10 @@ export const Video = () => {
                 </div>
                 <div className="video-player">
                     <iframe 
-                    width="560" 
-                    height="315" 
-                    src="https://www.youtube.com/embed/EuSqrA1TG1U" 
+                    width="650" 
+                    title="video"
+                    height="425" 
+                    src={src} 
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowFullScreen
