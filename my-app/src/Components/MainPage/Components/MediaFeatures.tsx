@@ -25,13 +25,13 @@ export const AudioFeatures = (props: AudioFeaturesProps) => {
                     <MediaCard
                         class={"fas fa-drum"}
                         header={"Слушай оригиналы песен"}
-                        link={"plus"}
+                        link={"audio"}
                         paragraph='В разделе "Плюс" собраны оригинальные аудио записи с барабанными партиями.'
                     />
                     <MediaCard
                         class={"fas fa-volume-mute"}
                         header={"Занимайся с треком без барабанов"}
-                        link={"minus"}
+                        link={"audio"}
                         paragraph='Большенство записей из раздела "Минус" имеют метроном. Это поможет ориентироваться в песне.'
                     />
                     <MediaCard

@@ -1,7 +1,53 @@
 .about {
     min-height: 76vh;
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 30px;
+            line-height: 50px;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            margin-top: 40px;
+            font-size: 40px;
+            text-align: center;
+        }
+
+        li {
+            height: 60px;
+        }
 }
 
 @media (max-width: 900px) {
+    .about {
+        min-height: fit-content;
     
+            h2 {
+                text-align: center;
+                margin: 20px auto;
+            }
+    
+            p {
+                text-align: center;
+                font-size: 24px;
+                line-height: 36px;
+                font-weight: 300;
+                margin-bottom: 20px;
+            }
+    
+            h1 {
+                margin-top: 20px;
+                margin-bottom: 30px;
+            }
+    
+            li {
+                height: unset;
+            }
+    }
 }
