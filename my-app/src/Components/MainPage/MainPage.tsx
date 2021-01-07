@@ -18,7 +18,7 @@ export const MainPage = () => {
                 <img className="main-logo" src="./assets/img/drumset.jpeg" alt="img" />
             </div>
             <div className="banner flex">
-                <h1>Школа игры на ударной установке №1 в Украине!</h1>
+                <h1>Школа игры на ударной установке!</h1>
             </div>
             <AboutParts scroll={windowScroll}/>
             <AudioFeatures scroll={windowScroll}/>
