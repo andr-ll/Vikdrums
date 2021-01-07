@@ -1,6 +1,7 @@
 # Vikdrums
 
+сd Vikdrums/my-app
+
 npm i
 
-run dev - npm start
-run build - npm run build
+npm start
