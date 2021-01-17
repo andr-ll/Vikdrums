@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
-import AudioData from '../../Data/AudioData';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAudios } from '../../actions/fetchers/audioData';
+import { RootState } from '../../type';
 import './Audio.scss';
 import { Collection } from './Components/Collection';
 
 export const Audio = () => {
+
+    const dispatch = useDispatch();
+    const audioState = useSelector(
+        (state: RootState) => state.audios.data
+    )
+
+    useEffect(() => {
+        dispatch(fetchAudios())
+    },[dispatch])
 
     const [audioSrc, setAudioSrc] = useState(" ");
 
@@ -12,7 +23,7 @@ export const Audio = () => {
         setAudioSrc(src)
     }
 
-    const AudioFiles = AudioData.map(item => <Collection
+    const AudioFiles = audioState.map(item => <Collection
         name={item.name}
         audio={item.audio}
         handlers={{ onAudioSrcChange }}

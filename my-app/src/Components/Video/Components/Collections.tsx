@@ -1,4 +1,5 @@
 import { useState } from "react"
+
 import { VideoContent, VideoContentData } from "./VideoContent"
 
 export interface CollectionsProps {

@@ -157,7 +157,7 @@
     }
 
     .question {
-        padding: 50px 0;
+        padding: 50px 0 40px;
         
         .container {
             position: relative;
@@ -169,14 +169,35 @@
 
         }
 
+        .added-email {
+            text-align: center;
+            font-size: 40px;
+        }
+
+        span {
+            color: red;
+            font-size: 14px;
+            height: 14px;
+            margin: 0;
+            text-align: center;
+        }
+
         form {
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            // justify-content: center;
             align-items: center;
             margin: 0 auto;
             text-align: center;
-            height: 100px;
+            height: fit-content;
+
+            p {
+                margin-bottom: 15px;
+            }
+
+            span {
+                margin-top: 15px;
+            }
 
             input {
                 outline: none;
