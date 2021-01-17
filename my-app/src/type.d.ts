@@ -108,7 +108,8 @@ export type UserData = {
     videos?: VideoContentData[]
 }
 
-export type LoginData = {
+export type RegistrationData = {
+    name: string
     email: string
     password: string
 }

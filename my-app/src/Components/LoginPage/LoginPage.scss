@@ -89,4 +89,51 @@
             }
         }
     }
+
+    .user-page {
+        position: relative;
+
+        button {
+            position: absolute;
+            top: 0;
+            right: 10px;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .login-page {
+        position: relative;
+        height: 70vh;
+    
+        .entry-window-wrapper {
+            .inputs {                
+                input {
+                    width: 250px;
+                    height: 30px;
+                }
+
+            }
+    
+            .user-action {
+                margin-top: 20px;
+    
+                button {
+                    width: 200px;
+                    height: 30px;
+                    border: 1px solid black;
+                    border-radius: 10px;
+    
+                    &:hover {
+                        background-color: #267DF4;
+                        color: white;
+                    }
+    
+                    &:active {
+                        transform: translateY(1px);
+                    }
+                }
+            }
+        }
+    }
 }

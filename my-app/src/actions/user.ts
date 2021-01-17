@@ -1,10 +1,11 @@
-import { LoginData, UserData } from "../type";
+import { UserData } from "../type";
 
 export const UsersFetchPendingAct = "UsersPending";
 export const UsersFetchSuccessAct = "GotUsers";
 export const UsersFetchFailAct = "UsersFail";
 export const UserLoginAct = "UserLogin";
 export const UserLogoutAct = "UserLogout";
+export const UserRegistrationAct = "UserRegistration";
 
 export type UserAction = 
     | ReturnType<typeof usersFetchPending>
@@ -12,6 +13,7 @@ export type UserAction =
     | ReturnType<typeof usersFetchFailed>
     | ReturnType<typeof userLogin>
     | ReturnType<typeof userLogout>;
+    // | ReturnType<typeof registrationLogin>;
 
 
 
@@ -42,6 +44,13 @@ export const userLogin = (data: UserData) => {
         payload: data
     } as const;
 }
+
+// export const registrationLogin = (data: RegistrationData) => {
+//     return {
+//         type: UserLoginAct,
+//         payload: data
+//     } as const;
+// }
 
 export const userLogout = () => {
     return {

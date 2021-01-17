@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { fetchUsers } from "../../actions/fetchers/usersData";
 import { userLogout } from "../../actions/user";
 import { RootState } from "../../type"
 import { EntryWindow } from "./Components/EntryWindow";
@@ -16,7 +14,12 @@ export const LoginPage = () => {
     return (
         <div className="container login-page">
             {
-                !currentUser.isLoggedIn ? <EntryWindow /> : <div>Добро пожаловать <button onClick={() => dispatch(userLogout())}>Logout</button></div>
+                !currentUser.isLoggedIn ? <EntryWindow />
+
+                    : <div className="user-page">
+                        Добро пожаловать {currentUser.data.name}!
+                    <button onClick={() => dispatch(userLogout())}>Logout</button>
+                    </div>
             }
         </div>
 

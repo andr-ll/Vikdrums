@@ -451,7 +451,7 @@ let users = [
         audios: [],
         parts: [],
         videos: []
-    },
+    }
 ]
 
 app.get('/', (req, res) => {
@@ -472,7 +472,8 @@ app.post('/users', (req, res) => {
         ...req.body
     };
     users.push(newUser);
-    res.send(newUser)
+    res.send({users: users, newUser: newUser});
+
 })
 
 app.get('/videoData', (req, res) => {

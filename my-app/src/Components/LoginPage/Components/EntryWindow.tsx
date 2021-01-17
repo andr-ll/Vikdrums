@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers } from "../../../actions/fetchers/usersData";
+import { fetchRegisteredUser, fetchUsers } from "../../../actions/fetchers/usersData";
 import { userLogin } from "../../../actions/user";
-import { RootState } from "../../../type";
+import { RegistrationData, RootState } from "../../../type";
 
 export const EntryWindow = () => {
     const dispatch = useDispatch();
 
     const usersList = useSelector(
         (state: RootState) => state.users.data
-    )
-
-    const currentUser = useSelector(
-        (state: RootState) => state.users.currentUser
     )
 
     useEffect(() => {
@@ -22,7 +18,9 @@ export const EntryWindow = () => {
     const [entry, setEntry] = useState(true);
     const [login, setLogin] = useState('');
     const [pass, setPass] = useState('');
+    const [name, setName] = useState('')
     const [invalidLog, setInvalidLog] = useState(false)
+    const [userExists, setUserExists] = useState(false)
 
     const onEntry = () => {
         setEntry(true)
@@ -36,15 +34,26 @@ export const EntryWindow = () => {
     }
 
     const loginAction = () => {
-        const user = usersList.find( item => item.email === login && item.password === pass);
+        let user = usersList.find( item => item.email === login && item.password === pass);
         if (login.includes('@') && login.includes('.')) {
             if (user !== undefined) {
+                setInvalidLog(false);
                 dispatch(userLogin(user))
             } else {
                 setInvalidLog(true);
             }
         } else {
             setInvalidLog(true);
+        }
+    }
+
+    const regAction = (dataReg: RegistrationData) => {
+        let newUser = usersList.find(item => item.email === dataReg.email || item.name === dataReg.name);
+        if (newUser === undefined) {
+            dispatch(fetchRegisteredUser(dataReg));
+            setUserExists(false);
+        } else {
+            setUserExists(true)
         }
     }
 
@@ -70,17 +79,22 @@ export const EntryWindow = () => {
                         Регистрация</button>
                 </div>
                 <div className="inputs flex">
-                    {
-                        !entry && <input type="text" placeholder="Введите Ваше имя..." />
-                    }
+                    
                     {
                         invalidLog && <span>Введены неправильные логин или пароль.</span>
+                    }
+                    {
+                        !entry && userExists && <span>Такой пользователь уже существует.</span>
+                    }
+                    {
+                        !entry && <input type="text" value={name} placeholder="Придумайте логин..." onChange={evt => setName(evt.target.value)}/>
                     }
                     <input type="text" value={login} placeholder="Введите email..." onChange={evt => setLogin(evt.target.value)}/>
                     <input type="password" value={pass} placeholder="Введите пароль..." onChange={evt => setPass(evt.target.value)}/>
                     <div className="user-action">
                         {
-                            entry ? <button onClick={loginAction}>Войти</button> : <button>Регистрация</button>
+                            entry ? <button onClick={loginAction}>Войти</button> 
+                            : <button onClick={ () => regAction({ name: name, email: login, password: pass })}>Регистрация</button>
                         }
                     </div>
                 </div>
