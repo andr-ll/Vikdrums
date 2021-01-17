@@ -1,13 +1,15 @@
 import { EmailData } from "../type";
 
 export const EmailFetchPendingAct = 'EmailPending';
+export const EmailFetchSuccessAct = 'GotEmail';
 export const EmailAddAct = 'EmailAdded';
-export const EmailFetchFeilAct = 'EmailFail';
+export const EmailFetchFailAct = 'EmailFail';
 
 export type EmailAction = 
     | ReturnType<typeof emailFetchPending>
     | ReturnType<typeof emailAddSuccess>
-    | ReturnType<typeof emailFetchFailed>;
+    | ReturnType<typeof emailFetchFailed>
+    | ReturnType<typeof emailFetchSuccess>;
 
 export const emailFetchPending = () => {
     return {
@@ -23,9 +25,16 @@ export const emailAddSuccess = (data: EmailData) => {
     } as const
 }
 
+export const emailFetchSuccess = (data: EmailData[]) => {
+    return {
+        type: EmailFetchSuccessAct,
+        payload: data
+    } as const
+}
+
 export const emailFetchFailed = (err: string) => {
     return {
-        type: EmailFetchFeilAct,
+        type: EmailFetchFailAct,
         payload: err
     } as const
 }

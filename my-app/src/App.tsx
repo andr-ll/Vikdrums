@@ -15,6 +15,7 @@ import { Audio } from './Components/Audio/Audio';
 import { About } from './Components/About/About';
 import { PartTemplateData } from './Components/Parts/Components/PartTemplate';
 import { FullScreen } from './Components/FullScreen/FullScreen';
+import { LoginPage } from './Components/LoginPage/LoginPage';
 
 export default function App() {
 
@@ -43,6 +44,9 @@ export default function App() {
         </Route>
         <Route path="/about">
           <About />
+        </Route>
+        <Route path="/login">
+          <LoginPage />
         </Route>
         <Route path="/fullscreen">
           <FullScreen

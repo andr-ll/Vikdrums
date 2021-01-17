@@ -1,0 +1,92 @@
+.login-page {
+    position: relative;
+    height: 70vh;
+
+    .entry-window-wrapper {
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+
+        
+        .entry-window {
+            height: 400px;
+            width: 600px;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .choice {
+            width: 300px;
+
+            button {
+                border: 2px solid black;
+                border-bottom: none;
+                border-right: 0.5px solid black;
+                border-radius: 15px 0 0 0;
+                height: 40px;
+                width: 50%;
+                transition: unset;
+                transition: color .4s ease;
+                font-size: 18px;
+                font-weight: 700;
+                // color: rgb(161, 161, 161);
+            }
+
+            button + button {
+                border-radius: 0 15px 0 0;
+                border-left: 0.5px solid black;
+                border-right: 2px solid black;
+            }
+        }
+
+        .inputs {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 300px;
+            height: 200px;
+            padding: 3px;
+            border: 2px solid black;
+            border-top: none;
+            border-radius: 0 0 15px 15px;
+            
+            input {
+                width: 250px;
+            }
+
+            input + input {
+                margin-top: 10px;
+            }
+
+            span {
+                margin: 0;
+                margin-bottom: 10px;
+                font-size: 12px;
+                color: red;
+            }
+        }
+
+        .user-action {
+            margin-top: 20px;
+
+            button {
+                width: 200px;
+                border: 1px solid black;
+                border-radius: 10px;
+
+                &:hover {
+                    background-color: #267DF4;
+                    color: white;
+                }
+
+                &:active {
+                    transform: translateY(1px);
+                }
+            }
+        }
+    }
+}

@@ -441,8 +441,38 @@ let emails = [
 
 ]
 
+let users = [
+    {
+        id: 0,
+        name: "AndrII",
+        email: "andr@ya.ru",
+        image: "",
+        password: "123qwe",
+        audios: [],
+        parts: [],
+        videos: []
+    },
+]
+
 app.get('/', (req, res) => {
     res.end('Everything is working here!')
+})
+
+app.get('/users', (req, res) => {
+    res.send(users);
+})
+
+app.post('/users', (req, res) => {
+    const newUser = {
+        id: users.length,
+        image: "",
+        audios: [],
+        parts: [],
+        videos: [],
+        ...req.body
+    };
+    users.push(newUser);
+    res.send(newUser)
 })
 
 app.get('/videoData', (req, res) => {
@@ -454,16 +484,26 @@ app.get('/audioData', (req, res) => {
 })
 
 app.get('/partsData', (req, res) => {
-    res.send(partsData);
+    try {
+        res.send(partsData);
+    }
+    catch (err) {
+        res.send(err);
+    }
 })
 
 app.post('/emails', (req, res) => {
-    const email = {
-        id: emails.length,
-        ...req.body
-    };
-    emails.push(email);
-    res.send(email)
+    try {
+        const email = {
+            id: emails.length,
+            ...req.body
+        };
+        emails.push(email);
+        res.send(email)
+    }
+    catch (err) {
+        res.send(err)
+    }
 })
 
 app.get('/emails', (req, res) => {

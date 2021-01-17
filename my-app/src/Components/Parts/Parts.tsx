@@ -1,5 +1,7 @@
-import React from 'react';
-import PartsData from '../../Data/PartsData';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchParts } from '../../actions/fetchers/partsData';
+import { RootState } from '../../type';
 import { PartsContainer, PartsHandlers } from './Components/PartsContainer';
 import './Parts.scss';
 
@@ -9,7 +11,20 @@ interface PartsProps {
 
 export const Parts = (props: PartsProps) => {
 
-    const Collection = PartsData.map(item => <PartsContainer
+    const dispatch = useDispatch();
+    const partsData = useSelector(
+        (state: RootState) => state.parts.data
+    );
+    
+    const partsDataErr = useSelector(
+        (state: RootState) => state.parts.err
+    );
+
+    useEffect(() => {
+        dispatch(fetchParts())
+    }, [dispatch])
+
+    const Collection = partsData.map(item => <PartsContainer
         name={item.name}
         parts={item.parts}
         key={item.id}
@@ -19,6 +34,7 @@ export const Parts = (props: PartsProps) => {
     return (
         <section className="parts">
             <div className="container">
+                { partsDataErr && <div>{partsDataErr}</div> }
                 {Collection}
             </div>
         </section>

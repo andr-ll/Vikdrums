@@ -8,9 +8,7 @@ export const fetchVideos = () => {
         dispatch(videosFetchPending());
         fetch(videosUrl)
             .then(res => res.json())
-            .then(videos => 
-                dispatch(videosFetchSuccess(videos)))
-            .catch(err => 
-                dispatch(videosFetchFail(err)))
+            .then(videos => dispatch(videosFetchSuccess(videos)))
+            .catch(err => dispatch(videosFetchFail(err)))
     }
 }

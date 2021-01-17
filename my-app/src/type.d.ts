@@ -1,7 +1,9 @@
 export type RootState = {
     videos: VideosState,
     audios: AudioState,
-    emails: EmailState
+    emails: EmailState,
+    parts: PartsState,
+    users: AllUsers
 }
 
 // Video Data and all info
@@ -45,15 +47,68 @@ export type SongsData = {
     minus: string
 }
 
+// Parts info and everything
+
+export interface PartsState {
+    data: CollectionData[]
+    isLoading: boolean
+    err: string
+}
+
+export type CollectionData = {
+    id: number
+    name: string
+    parts: PartsData[]
+}
+
+export type PartsData = {
+    id: number
+    name: string
+    src: string
+    link: string
+}
+
 // Emails
 
 export interface EmailState {
     data: EmailData
+    registered: EmailData[]
     isLoading: boolean
     err: string
 }
 
 export type EmailData = {
-    id: number
+    id?: number
     email: string
+}
+
+// User and everything that he/she includes...
+
+
+export interface UserState {
+    data: UserData
+    isLoggedIn: boolean
+}
+
+export interface AllUsers {
+    data: UserData[]
+    currentUser: UserState
+    isLoading: boolean
+    err: string
+}
+
+export type UserData = {
+    id: number
+    name: string
+    email: string
+    image?: string
+    password: string
+    audios?: SongsData[]
+    parts?: PartsData[]
+    videos?: VideoContentData[]
+}
+
+export type LoginData = {
+    email: string
+    password: string
 }
