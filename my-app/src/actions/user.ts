@@ -13,7 +13,6 @@ export type UserAction =
     | ReturnType<typeof usersFetchFailed>
     | ReturnType<typeof userLogin>
     | ReturnType<typeof userLogout>;
-    // | ReturnType<typeof registrationLogin>;
 
 
 
@@ -44,13 +43,6 @@ export const userLogin = (data: UserData) => {
         payload: data
     } as const;
 }
-
-// export const registrationLogin = (data: RegistrationData) => {
-//     return {
-//         type: UserLoginAct,
-//         payload: data
-//     } as const;
-// }
 
 export const userLogout = () => {
     return {

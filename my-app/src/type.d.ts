@@ -84,17 +84,16 @@ export type EmailData = {
 
 // User and everything that he/she includes...
 
-
-export interface UserState {
-    data: UserData
-    isLoggedIn: boolean
-}
-
 export interface AllUsers {
     data: UserData[]
     currentUser: UserState
     isLoading: boolean
     err: string
+}
+
+export interface UserState {
+    data: UserData
+    isLoggedIn: boolean
 }
 
 export type UserData = {
