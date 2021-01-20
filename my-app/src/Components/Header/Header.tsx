@@ -1,10 +1,13 @@
 import React, { useState } from "react"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import { setClickLogin } from "../../actions/setClickLogin"
 import { RootState } from "../../type"
 import './Header.scss'
 
 export const Header = () => {
+
+    const dispatch = useDispatch();
 
     const currentUser = useSelector(
         (state: RootState) => state.users.currentUser
@@ -38,12 +41,12 @@ export const Header = () => {
 
                 <nav className={`flex ${navOpen}`}>
                     <Link to="/" onClick={navOpener}>Главная</Link>
-                    <Link to="/parts" onClick={navOpener}>Ноты</Link>
+                    <Link to="/parts" onClick={() => { dispatch(setClickLogin(false)); navOpener()}}>Ноты</Link>
                     <Link to="/audio" onClick={navOpener}>Аудио</Link>
                     <Link to="/video" onClick={navOpener}>Видео</Link>
                     <Link to="/about" onClick={navOpener}>О Vikdrums</Link>
                     {
-                        currentUser.isLoggedIn ? <Link to="/login" onClick={navOpener}> {currentUser.data.name} </Link> : <Link to="/login" onClick={navOpener}> Вход </Link>
+                        currentUser.isLoggedIn ? <Link to="/login" onClick={() => { dispatch(setClickLogin(true)); navOpener()}}>{currentUser.data.name} </Link> : <Link to="/login" onClick={() => { dispatch(setClickLogin(true)); navOpener()}}> Вход </Link>
                     }
                     
                 </nav>

@@ -39,3 +39,4 @@ export const currentPartFullSize = (data: PartTemplateData) => {
         payload: data
     } as const
 }
+

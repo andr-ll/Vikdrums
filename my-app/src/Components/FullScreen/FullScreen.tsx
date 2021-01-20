@@ -9,6 +9,10 @@ import './FullScreen.scss'
 
 export const FullScreen = () => {
 
+    const isClickFromLogin = useSelector(
+        (state: RootState) => state.setClickFronLogin
+    )
+
     const isCurrentUser = useSelector(
         (state: RootState) => state.users.currentUser
     )
@@ -23,8 +27,11 @@ export const FullScreen = () => {
                 {
                     !isCurrentUser.isLoggedIn ? <Link to="/parts"><i className="fas fa-arrow-left desktop-only" /><span>Все ноты</span></Link> :
                         <React.Fragment>
-                            <Link to="/parts"><i className="fas fa-arrow-left desktop-only" /><span>Все ноты</span></Link>
-                            <Link to="/login"><i className="fas fa-arrow-left desktop-only" /><span>Профиль</span></Link>
+                            {
+                                isClickFromLogin ?
+                                    <Link to="/login"><i className="fas fa-arrow-left desktop-only" /><span>Профиль</span></Link>
+                                    : <Link to="/parts"><i className="fas fa-arrow-left desktop-only" /><span>Все ноты</span></Link>
+                            }
                         </React.Fragment>
                 }
             </div>

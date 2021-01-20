@@ -38,7 +38,7 @@ export default function App() {
         <Route path="/about">
           <About />
         </Route>
-        <Route path="/login">
+        <Route path="/login" >
           <LoginPage />
         </Route>
         <Route path="/fullscreen">

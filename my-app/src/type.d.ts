@@ -3,7 +3,8 @@ export type RootState = {
     audios: AudioState,
     emails: EmailState,
     parts: PartsState,
-    users: AllUsers
+    users: AllUsers,
+    setClickFronLogin: boolean
 }
 
 // Video Data and all info

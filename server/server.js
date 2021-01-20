@@ -429,6 +429,7 @@ let partsData = [
         name: "Rick Latham",
         parts: [
             {
+                id: 1,
                 name: "Just a Piccolo",
                 src: './assets/parts/Rick_Latham/just_a_piccolo.jpg',
                 link: './assets/parts/Rick_Latham/Download/just a piccolo.zip'
@@ -503,12 +504,13 @@ let users = [
         audios: [],
         parts: [
             {
-                id: 2,
+                id: 0,
                 name: "Disco",
                 src: './assets/parts/Elementar_Percussion/Disco.jpg',
                 link: './assets/parts/Elementar_Percussion/Download/Disco.pdf'
             },
             {
+                id: 1,
                 name: "Just a Piccolo",
                 src: './assets/parts/Rick_Latham/just_a_piccolo.jpg',
                 link: './assets/parts/Rick_Latham/Download/just a piccolo.zip'
@@ -537,6 +539,16 @@ app.post('/users', (req, res) => {
     };
     users.push(newUser);
     res.send({ users: users, newUser: newUser });
+})
+
+app.post('/addPart', (req, res) => {
+    const addPart = {
+        id: users.find(item => item.email === req.body.user.email && item.name === req.body.user.name).parts.length,
+        ...req.body.part
+    }
+    const currentUser = users.find(item => item.email === req.body.user.email && item.name === req.body.user.name);
+    currentUser.parts.push(addPart)
+    res.send({user: currentUser})
 })
 
 app.get('/videoData', (req, res) => {
