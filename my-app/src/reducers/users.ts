@@ -1,4 +1,4 @@
-import { UserAction, UserLoginAct, UserLogoutAct, UsersFetchFailAct, UsersFetchPendingAct, UsersFetchSuccessAct } from "../actions/user"
+import { UserAction, userAddPartAct, UserLoginAct, UserLogoutAct, userRemovePartAct, UsersFetchFailAct, UsersFetchPendingAct, UsersFetchSuccessAct } from "../actions/user"
 import { AllUsers } from "../type"
 
 const initialUsersState: AllUsers = {
@@ -35,6 +35,10 @@ export const usersRecuder = (
             return Object.assign({}, state, { currentUser: { data: action.payload, isLoggedIn: true} } )
         case UserLogoutAct:
             return Object.assign({}, state, { currentUser: { data: initialUsersState.currentUser.data , isLoggedIn: false} } )
+        case userAddPartAct:
+            return Object.assign({}, state, { currentUser: action.payload } )
+        case userRemovePartAct:
+            return Object.assign({}, state, { currentUser: action.payload } )
         default:
             neverReached(action)
     }

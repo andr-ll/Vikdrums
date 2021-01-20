@@ -120,3 +120,8 @@ export type RegistrationData = {
     email: string
     password: string
 }
+
+export type UserAddPartData = {
+    userData: UserData
+    partData: PartTemplateData
+}

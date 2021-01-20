@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers } from "../../../actions/fetchers/usersData";
 import { userLogout } from "../../../actions/user";
 import { RootState } from "../../../type";
-import './ProfilePage.scss'
 import { ProfilePartsTemp } from "./ProfilePartsTemp";
 
 export const ProfilePage = () => {
 
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(fetchUsers())
+    }, [dispatch])
+
     const currentUser = useSelector(
         (state: RootState) => state.users.currentUser
     )
 
-    const userParts = currentUser.data.parts?.map(item => <ProfilePartsTemp link={item.link} name={item.name} src={item.src} />)
+    const userParts = currentUser.data.parts?.map(item => <ProfilePartsTemp link={item.link} name={item.name} src={item.src} key={item.id}/>)
 
     return (
         <React.Fragment>
@@ -33,7 +37,7 @@ export const ProfilePage = () => {
                     </div>
                 </div>
                 <div className="courses-block">
-                    <h3>Мои ноты</h3>
+                    <h3>Мои Ноты</h3>
                     <div className="parts-container flex">
                         {
                             userParts

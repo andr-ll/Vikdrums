@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,7 +16,7 @@ import { About } from './Components/About/About';
 
 import { FullScreen } from './Components/FullScreen/FullScreen';
 import { LoginPage } from './Components/LoginPage/LoginPage';
-import { PartTemplateData } from './Components/Parts/Components/PartTemplate';
+
 
 
 export default function App() {

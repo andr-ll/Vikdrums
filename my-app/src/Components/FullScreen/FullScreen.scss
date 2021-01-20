@@ -42,15 +42,43 @@
         }
 
         a {
-            width: 120px;
+            width: 200px;
             height: 40px;
             border: 1px solid black;
             border-radius: 20px;
             text-align: center;
             line-height: 40px;
+            transition: unset;
 
             &:hover {
                 background-color: #267DF4;
+                color: white;
+            }
+        }
+
+        button {
+            margin-top: 12px;
+            width: 200px;
+            height: 40px;
+            border: 1px solid black;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 40px;
+            transition: unset;
+
+            &:hover {
+                background-color: #267DF4;
+                color: white;
+            }
+
+            &:active {
+                transform: translateY(1px);
+            }
+        }
+
+        .remove-btn {
+            &:hover {
+                background-color: rgb(255, 47, 47);
                 color: white;
             }
         }

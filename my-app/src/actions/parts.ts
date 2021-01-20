@@ -1,5 +1,4 @@
-import { PartTemplateData } from "../Components/Parts/Components/PartTemplate";
-import { CollectionData } from "../type"
+import { CollectionData, PartTemplateData } from "../type"
 
 export const PartsFetchPendingAct = "PartsPending";
 export const PartsFetchSuccessAct = "GotParts";
@@ -39,4 +38,6 @@ export const currentPartFullSize = (data: PartTemplateData) => {
         payload: data
     } as const
 }
+
+
 

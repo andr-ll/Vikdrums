@@ -12,7 +12,7 @@ export const PartsContainer = (props: PartsContainerProps) => {
 
     const PartsList = props.parts.map(item => <PartTemplate 
         data={item}
-        key={item.name}
+        key={item.id}
         />)
 
     return (

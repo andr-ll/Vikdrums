@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import { currentPartFullSize } from "../../../actions/parts";
 
 export interface PartTemplateData {
+    id: number
     link: string
     src: string
     name: string

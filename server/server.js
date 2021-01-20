@@ -438,7 +438,7 @@ let partsData = [
     },
     {
         id: 3,
-        name: 'Template 1"',
+        name: 'Template 1',
         parts: [
             {
                 id: 1,
@@ -542,13 +542,21 @@ app.post('/users', (req, res) => {
 })
 
 app.post('/addPart', (req, res) => {
+    let currentUser = users.find(item => item.email === req.body.userData.email && item.name === req.body.userData.name);
     const addPart = {
-        id: users.find(item => item.email === req.body.user.email && item.name === req.body.user.name).parts.length,
-        ...req.body.part
+        id: currentUser.parts.length,
+        name: req.body.partData.name,
+        src: req.body.partData.src,
+        link: req.body.partData.link,
     }
-    const currentUser = users.find(item => item.email === req.body.user.email && item.name === req.body.user.name);
     currentUser.parts.push(addPart)
-    res.send({user: currentUser})
+    res.send(currentUser);
+})
+
+app.delete('/removePart', (req, res) => {
+    let currentUser = users.find(item => item.email === req.body.userData.email && item.name === req.body.userData.name);
+    currentUser.parts = currentUser.parts.filter(item => item.name !== req.body.partData.name);
+    res.send(currentUser);
 })
 
 app.get('/videoData', (req, res) => {

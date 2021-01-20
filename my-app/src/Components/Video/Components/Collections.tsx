@@ -14,10 +14,10 @@ export interface CollectionsHandlers {
 
 export const Collections = (props: CollectionsProps) => {
 
-    const [contentVisible, setContentVisible] = useState(" ");
+    const [contentVisible, setContentVisible] = useState(false);
 
     const onCollectionClick = () => {
-        contentVisible === " " ? setContentVisible("visible") : setContentVisible(" ")
+        !contentVisible ? setContentVisible(true) : setContentVisible(false)
     }
 
     const videoList = props.content.map(item =>
@@ -29,10 +29,10 @@ export const Collections = (props: CollectionsProps) => {
 
     return (
         <div className="video-collection flex">
-            <h3 onClick={onCollectionClick}>
-                        {props.collection}
+            <h3 onClick={onCollectionClick} className={`${contentVisible && "headline"}`}>
+                {props.collection}
             </h3>
-            <div className={`list ${contentVisible}`} >
+            <div className={`list ${contentVisible && "visible"}`} >
                 {videoList}
             </div>
         </div>
