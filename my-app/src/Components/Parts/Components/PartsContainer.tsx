@@ -1,21 +1,18 @@
+import React from "react"
 import { PartTemplate, PartTemplateData } from "./PartTemplate"
+
 
 interface PartsContainerProps {
     name: string
     parts: PartTemplateData[]
-    handlers: PartsHandlers
 }
 
-export interface PartsHandlers {
-    onPartChange: (part: PartTemplateData) => void
-}
 
 export const PartsContainer = (props: PartsContainerProps) => {
 
     const PartsList = props.parts.map(item => <PartTemplate 
         data={item}
         key={item.name}
-        onPartChange={props.handlers.onPartChange}
         />)
 
     return (

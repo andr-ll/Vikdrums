@@ -2,14 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchParts } from '../../actions/fetchers/partsData';
 import { RootState } from '../../type';
-import { PartsContainer, PartsHandlers } from './Components/PartsContainer';
+import { PartsContainer } from './Components/PartsContainer';
 import './Parts.scss';
 
-interface PartsProps {
-    handlers: PartsHandlers
-}
 
-export const Parts = (props: PartsProps) => {
+export const Parts = () => {
 
     const dispatch = useDispatch();
     const partsData = useSelector(
@@ -28,7 +25,6 @@ export const Parts = (props: PartsProps) => {
         name={item.name}
         parts={item.parts}
         key={item.id}
-        handlers={props.handlers}
     />)
 
     return (

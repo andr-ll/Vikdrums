@@ -1,18 +1,37 @@
 import React from "react"
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import { RootState } from "../../type"
 import { PartTemplateData } from "../Parts/Components/PartTemplate"
+
 
 import './FullScreen.scss'
 
-export const FullScreen = (props: PartTemplateData) => {
+export const FullScreen = () => {
+
+    const isCurrentUser = useSelector(
+        (state: RootState) => state.users.currentUser
+    )
+
+    const currentPart = useSelector(
+        (state: RootState) => state.parts.currentParts
+    )
 
     return (
         <div className="full-screen container flex">
-            <Link to="/parts"><i className="fas fa-arrow-left desktop-only" /></Link>
-            <img src={props.src} alt="" />
+            <div className="go-back flex">
+                {
+                    !isCurrentUser.isLoggedIn ? <Link to="/parts"><i className="fas fa-arrow-left desktop-only" /><span>Все ноты</span></Link> :
+                        <React.Fragment>
+                            <Link to="/parts"><i className="fas fa-arrow-left desktop-only" /><span>Все ноты</span></Link>
+                            <Link to="/login"><i className="fas fa-arrow-left desktop-only" /><span>Профиль</span></Link>
+                        </React.Fragment>
+                }
+            </div>
+            <img src={currentPart.src} alt="" />
             <div className="actions flex">
-                <h2>{props.name}</h2>
-                <a href={props.link} download>Скачать</a>
+                <h2>{currentPart.name}</h2>
+                <a href={currentPart.link} download>Скачать</a>
             </div>
         </div>
     )

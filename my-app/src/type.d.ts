@@ -53,6 +53,7 @@ export interface PartsState {
     data: CollectionData[]
     isLoading: boolean
     err: string
+    currentParts: PartTemplateData
 }
 
 export type CollectionData = {
@@ -66,6 +67,12 @@ export type PartsData = {
     name: string
     src: string
     link: string
+}
+
+export interface PartTemplateData {
+    link: string
+    src: string
+    name: string
 }
 
 // Emails

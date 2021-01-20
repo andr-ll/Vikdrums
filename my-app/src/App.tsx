@@ -13,21 +13,14 @@ import { Video } from './Components/Video/Video';
 import { Parts } from './Components/Parts/Parts';
 import { Audio } from './Components/Audio/Audio';
 import { About } from './Components/About/About';
-import { PartTemplateData } from './Components/Parts/Components/PartTemplate';
+
 import { FullScreen } from './Components/FullScreen/FullScreen';
 import { LoginPage } from './Components/LoginPage/LoginPage';
+import { PartTemplateData } from './Components/Parts/Components/PartTemplate';
+
 
 export default function App() {
 
-  const [currentPart, setCurrentPart] = useState<PartTemplateData>({
-    link: "default",
-    src: "default",
-    name: "default"
-  })
-
-  const onPartChange = (part: PartTemplateData) => {
-    setCurrentPart(part)
-  }
 
   return (
     <Router>
@@ -37,7 +30,7 @@ export default function App() {
           <Video />
         </Route>
         <Route path="/parts">
-          <Parts handlers={{onPartChange}}/>
+          <Parts />
         </Route>
         <Route path="/audio">
           <Audio />
@@ -49,11 +42,7 @@ export default function App() {
           <LoginPage />
         </Route>
         <Route path="/fullscreen">
-          <FullScreen
-            link={currentPart.link}
-            src={currentPart.src}
-            name={currentPart.name}
-          />
+          <FullScreen />
         </Route>
         <Route path="/">
           <MainPage />

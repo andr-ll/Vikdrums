@@ -493,6 +493,28 @@ let users = [
         audios: [],
         parts: [],
         videos: []
+    },
+    {
+        id: 1,
+        name: "AndrIII",
+        email: "1@.",
+        image: "",
+        password: "1",
+        audios: [],
+        parts: [
+            {
+                id: 2,
+                name: "Disco",
+                src: './assets/parts/Elementar_Percussion/Disco.jpg',
+                link: './assets/parts/Elementar_Percussion/Download/Disco.pdf'
+            },
+            {
+                name: "Just a Piccolo",
+                src: './assets/parts/Rick_Latham/just_a_piccolo.jpg',
+                link: './assets/parts/Rick_Latham/Download/just a piccolo.zip'
+            }
+        ],
+        videos: []
     }
 ]
 
@@ -514,7 +536,7 @@ app.post('/users', (req, res) => {
         ...req.body
     };
     users.push(newUser);
-    res.send({users: users, newUser: newUser});
+    res.send({ users: users, newUser: newUser });
 })
 
 app.get('/videoData', (req, res) => {

@@ -26,34 +26,35 @@ export const EntryWindow = () => {
     const [isLoading, setIsLoading] = useState(false)
 
     const onEntry = () => {
-        setEntry(true)
+        setEntry(true);
+        setLogin('');
+        setPass('');
+        setName('')
     }
 
     const onRegistration = () => {
         setInvalidLog(false);
-        setEntry(false)
+        setEntry(false);
         setLogin('');
-        setPass('')
+        setPass('');
+        setName('')
     }
 
-
-
     const loginAction = () => {
-        setIsLoading(true);
-        setTimeout(() => {
-            let user = usersList.find(item => item.email === login && item.password === pass);
-            if (login.includes('@') && login.includes('.')) {
+        let user = usersList.find(item => item.email === login && item.password === pass);
+        if (login.includes('@') && login.includes('.') && user !== undefined) {
+            setIsLoading(true);
+            setTimeout(() => {
                 if (user !== undefined) {
                     setInvalidLog(false);
-                    dispatch(userLogin(user))
-                } else {
-                    setInvalidLog(true);
+                    dispatch(userLogin(user));
+                    setIsLoading(false)
                 }
-            } else {
-                setInvalidLog(true);
-            }
-            setIsLoading(false);
-        }, 1000)
+            }, 1000)
+        } else {
+            setInvalidLog(true);
+        }
+
 
 
     }
@@ -76,8 +77,8 @@ export const EntryWindow = () => {
 
     return (
         <div className="entry-window-wrapper flex">
-            <div className="entry-window flex" style={{justifyContent: isLoading ? "center" : "flex-start"}}>
-                { isLoading ? <div className="your-loader"></div> : <React.Fragment>
+            <div className="entry-window flex" style={{ justifyContent: isLoading ? "center" : "flex-start" }}>
+                {isLoading ? <div className="your-loader"></div> : <React.Fragment>
                     <div className="choice flex">
                         <button
                             onClick={onEntry}
@@ -96,7 +97,7 @@ export const EntryWindow = () => {
                         >
                             Регистрация</button>
                     </div>
-                    <div className="inputs flex">
+                    <form className="inputs flex" onSubmit={evt => { evt.preventDefault(); entry ? loginAction() : regAction({ name: name, email: login, password: pass }) }}>
 
                         {
                             invalidLog && <span>Введены неправильные логин или пароль.</span>
@@ -111,12 +112,12 @@ export const EntryWindow = () => {
                         <input type="password" value={pass} placeholder="Введите пароль..." onChange={evt => setPass(evt.target.value)} />
                         <div className="user-action">
                             {
-                                entry ? <button onClick={loginAction}>Войти</button>
-                                    : <button onClick={() => regAction({ name: name, email: login, password: pass })}>Регистрация</button>
+                                entry ? <button type="submit" onSubmit={evt => { evt.preventDefault(); loginAction() }}>Войти</button>
+                                    : <button type="submit" onSubmit={evt => { evt.preventDefault(); regAction({ name: name, email: login, password: pass }) }}>Регистрация</button>
                             }
                         </div>
 
-                    </div>
+                    </form>
                 </React.Fragment>
                 }
             </div>

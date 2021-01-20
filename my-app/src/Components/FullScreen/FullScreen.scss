@@ -3,16 +3,30 @@
     padding: 50px 0;
 
 
-     i {
-        font-size: 30px;
+    .go-back {
+        flex-direction: column;
 
-        &:hover {
-            color: #267DF4;
+        i {
+            font-size: 20px;
+            margin-right: 4px;
+
+            transition: unset;
+        } 
+
+        a {
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                color: #267DF4;
+            }
+
+            & + a {
+                margin-top: 12px;
+            }
         }
-
-       } 
-
-
+    }
+    
     img {
         height: 700px;
     }

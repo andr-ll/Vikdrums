@@ -1,0 +1,9 @@
+.part-wrapper {
+    border: 1px solid black;
+    border-radius: 30px;
+
+    &:hover {
+        background-color: #267DF4;
+        color: white;
+    }
+}
