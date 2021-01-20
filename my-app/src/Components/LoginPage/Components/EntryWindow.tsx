@@ -78,47 +78,50 @@ export const EntryWindow = () => {
     return (
         <div className="entry-window-wrapper flex">
             <div className="entry-window flex" style={{ justifyContent: isLoading ? "center" : "flex-start" }}>
-                {isLoading ? <div className="your-loader"></div> : <React.Fragment>
-                    <div className="choice flex">
-                        <button
-                            onClick={onEntry}
-                            style={{
-                                borderBottom: entry ? "none" : "2px solid black",
-                                color: entry ? "black" : "rgb(161, 161, 161)"
-                            }}
-                        >
-                            Вход</button>
-                        <button
-                            onClick={onRegistration}
-                            style={{
-                                borderBottom: !entry ? "none" : "2px solid black",
-                                color: !entry ? "black" : "rgb(161, 161, 161)"
-                            }}
-                        >
-                            Регистрация</button>
-                    </div>
-                    <form className="inputs flex" onSubmit={evt => { evt.preventDefault(); entry ? loginAction() : regAction({ name: name, email: login, password: pass }) }}>
+                {
+                    isLoading
+                        ? <div className="your-loader"></div>
+                        : <React.Fragment>
+                            <div className="choice flex">
+                                <button
+                                    onClick={onEntry}
+                                    style={{
+                                        borderBottom: entry ? "none" : "2px solid black",
+                                        color: entry ? "black" : "rgb(161, 161, 161)"
+                                    }}
+                                >
+                                    Вход</button>
+                                <button
+                                    onClick={onRegistration}
+                                    style={{
+                                        borderBottom: !entry ? "none" : "2px solid black",
+                                        color: !entry ? "black" : "rgb(161, 161, 161)"
+                                    }}
+                                >
+                                    Регистрация</button>
+                            </div>
+                            <form className="inputs flex" onSubmit={evt => { evt.preventDefault(); entry ? loginAction() : regAction({ name: name, email: login, password: pass }) }}>
 
-                        {
-                            invalidLog && <span>Введены неправильные логин или пароль.</span>
-                        }
-                        {
-                            !entry && userExists && <span>Такой пользователь уже существует.</span>
-                        }
-                        {
-                            !entry && <input type="text" value={name} placeholder="Придумайте логин..." onChange={evt => setName(evt.target.value)} />
-                        }
-                        <input type="text" value={login} placeholder="Введите email..." onChange={evt => setLogin(evt.target.value)} />
-                        <input type="password" value={pass} placeholder="Введите пароль..." onChange={evt => setPass(evt.target.value)} />
-                        <div className="user-action">
-                            {
-                                entry ? <button type="submit" onSubmit={evt => { evt.preventDefault(); loginAction() }}>Войти</button>
-                                    : <button type="submit" onSubmit={evt => { evt.preventDefault(); regAction({ name: name, email: login, password: pass }) }}>Регистрация</button>
-                            }
-                        </div>
+                                {
+                                    invalidLog && <span>Введены неправильные логин или пароль.</span>
+                                }
+                                {
+                                    !entry && userExists && <span>Такой пользователь уже существует.</span>
+                                }
+                                {
+                                    !entry && <input type="text" value={name} placeholder="Придумайте логин..." onChange={evt => setName(evt.target.value)} />
+                                }
+                                <input type="text" value={login} placeholder="Введите email..." onChange={evt => setLogin(evt.target.value)} />
+                                <input type="password" value={pass} placeholder="Введите пароль..." onChange={evt => setPass(evt.target.value)} />
+                                <div className="user-action">
+                                    {
+                                        entry ? <button type="submit" onSubmit={evt => { evt.preventDefault(); loginAction() }}>Войти</button>
+                                            : <button type="submit" onSubmit={evt => { evt.preventDefault(); regAction({ name: name, email: login, password: pass }) }}>Регистрация</button>
+                                    }
+                                </div>
 
-                    </form>
-                </React.Fragment>
+                            </form>
+                        </React.Fragment>
                 }
             </div>
         </div>

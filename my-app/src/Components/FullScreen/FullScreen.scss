@@ -1,6 +1,6 @@
 .full-screen {
     justify-content: space-between;
-    padding: 50px 0;
+    padding: 20px 0;
 
 
     .go-back {
@@ -88,6 +88,7 @@
 @media (max-width: 900px) {
     .full-screen {
         flex-direction: column;
+        justify-content: space-around;
         padding: 20px 0;
         width: 96vw;
         height: 85vh;
@@ -98,7 +99,7 @@
         }
 
         .actions {
-            flex-direction: row;
+            flex-direction: column;
             justify-content: space-around;
             align-items: center;
             width: 96vw;
@@ -106,7 +107,6 @@
 
             h2 {
                 font-size: 3.4vh;
-                margin-bottom: unset;
             }
 
             a {
@@ -116,11 +116,31 @@
                 border-radius: 20px;
                 text-align: center;
                 line-height: 40px;
+                background-color: #267DF4;
+                color: white;
 
-                &:hover {
-                    background-color: #267DF4;
-                    color: white;
+            }
+
+            button {
+                margin-top: 12px;
+                width: 200px;
+                height: 40px;
+                border: 1px solid black;
+                border-radius: 20px;
+                text-align: center;
+                line-height: 40px;
+                transition: unset;
+                background-color: #267DF4;
+                color: white;
+    
+                &:active {
+                    transform: unset;
                 }
+            }
+    
+            .remove-btn {
+                background-color: rgb(255, 47, 47);
+                color: white;
             }
         }
     }

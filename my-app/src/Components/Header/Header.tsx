@@ -46,7 +46,9 @@ export const Header = () => {
                     <Link to="/video" onClick={navOpener}>Видео</Link>
                     <Link to="/about" onClick={navOpener}>О Vikdrums</Link>
                     {
-                        currentUser.isLoggedIn ? <Link to="/login" onClick={() => { dispatch(setClickLogin(true)); navOpener()}}>{currentUser.data.name} </Link> : <Link to="/login" onClick={() => { dispatch(setClickLogin(true)); navOpener()}}> Вход </Link>
+                        currentUser.isLoggedIn 
+                        ? <Link to="/login" onClick={() => { dispatch(setClickLogin(true)); navOpener()}}>{currentUser.data.name} </Link> 
+                        : <Link to="/login" onClick={() => { dispatch(setClickLogin(true)); navOpener()}}> Вход </Link>
                     }
                     
                 </nav>

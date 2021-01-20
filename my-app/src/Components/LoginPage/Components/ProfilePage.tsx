@@ -23,7 +23,7 @@ export const ProfilePage = () => {
         <React.Fragment>
             <div className="profile-page">
                 <h3>Добро пожаловать {currentUser.data.name}!</h3>
-                <button onClick={() => dispatch(userLogout())}>Logout</button>
+                <button className="exit desktop-only" onClick={() => dispatch(userLogout())}>Выйти</button>
             </div>
             <div className="profile-info flex">
                 <div className="info-block flex">
@@ -44,7 +44,9 @@ export const ProfilePage = () => {
                         }
                     </div>
                 </div>
+                <button className="exit mobile-only" onClick={() => dispatch(userLogout())}>Выйти</button>
             </div>
+            
         </React.Fragment>
 
     )

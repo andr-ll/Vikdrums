@@ -25,14 +25,14 @@ export const FullScreen = () => {
 
     return (
         <div className="full-screen container flex">
-            <div className="go-back flex">
+            <div className="go-back flex desktop-only">
                 {
-                    !isCurrentUser.isLoggedIn ? <Link to="/parts"><i className="fas fa-arrow-left desktop-only" /><span>Все ноты</span></Link> :
+                    !isCurrentUser.isLoggedIn ? <Link to="/parts"><i className="fas fa-arrow-left" /><span>Все ноты</span></Link> :
                         <React.Fragment>
                             {
                                 isClickFromLogin ?
-                                    <Link to="/login"><i className="fas fa-arrow-left desktop-only" /><span>Профиль</span></Link>
-                                    : <Link to="/parts"><i className="fas fa-arrow-left desktop-only" /><span>Все ноты</span></Link>
+                                    <Link to="/login" ><i className="fas fa-arrow-left" /><span>Профиль</span></Link>
+                                    : <Link to="/parts" ><i className="fas fa-arrow-left" /><span>Все ноты</span></Link>
                             }
                         </React.Fragment>
                 }
