@@ -1,13 +1,15 @@
 import { VideoData } from "../type";
 
-export const FetchVideosPendingAct = "PendingPosts";
-export const FetchVideosSuccessAct = "GotPosts";
-export const FetchVideosFailAct = "FailedPosts";
+export const FetchVideosPendingAct = "PendingVideos";
+export const FetchVideosSuccessAct = "GotVideos";
+export const FetchVideosFailAct = "FailedVideos";
+export const CurrentVideosUrlAct = "CurrentVideo";
 
 export type VideosActions = 
     | ReturnType<typeof videosFetchPending>
     | ReturnType<typeof videosFetchSuccess>
-    | ReturnType<typeof videosFetchFail>;
+    | ReturnType<typeof videosFetchFail>
+    | ReturnType<typeof currentVideoUrl>;
 
 export const videosFetchPending = () => {
     return {
@@ -27,5 +29,12 @@ export const videosFetchFail = (err: string) => {
     return {
         type: FetchVideosFailAct,
         payload: err
+    } as const;
+}
+
+export const currentVideoUrl = (src: string) => {
+    return {
+        type: CurrentVideosUrlAct,
+        payload: src
     } as const;
 }

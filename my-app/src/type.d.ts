@@ -13,6 +13,7 @@ export interface VideosState {
     data: VideoData[]
     isLoading: boolean
     err: string
+    currentVideo: string
 }
 
 export type VideoData = {

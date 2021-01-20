@@ -9,23 +9,19 @@ import './Video.scss';
 export const Video = () => {
 
     const dispatch = useDispatch();
-    const videosState = useSelector(
-        (state: RootState) => state.videos.data
-    )
-    const [src, setSrc] = useState("https://www.youtube.com/embed/EuSqrA1TG1U")
 
-    const onSrcChange = (newSrc: string) => {
-        setSrc(newSrc)
-    }
+    
+    const videosState = useSelector(
+        (state: RootState) => state.videos
+    );
 
     useEffect(() => {
         dispatch(fetchVideos());
     },[dispatch])
 
-    const videoContent = videosState.map(item => <Collections 
+    const videoContent = videosState.data.map(item => <Collections 
                             collection={item.collection} 
                             content={item.content}
-                            handlers={{onSrcChange}}
                             key={item.id}
                             />)
 
@@ -40,7 +36,7 @@ export const Video = () => {
                     width="650" 
                     title="video"
                     height="425" 
-                    src={src} 
+                    src={videosState.currentVideo} 
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowFullScreen

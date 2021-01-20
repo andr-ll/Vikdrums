@@ -39,7 +39,21 @@ export const Header = () => {
                     </span>
                 </button>
 
-                <nav className={`flex ${navOpen}`}>
+                <nav className="flex desktop-only">
+                    <Link to="/">Главная</Link>
+                    <Link to="/parts" onClick={() => dispatch(setClickLogin(false))}>Ноты</Link>
+                    <Link to="/audio">Аудио</Link>
+                    <Link to="/video">Видео</Link>
+                    <Link to="/about">О Vikdrums</Link>
+                    {
+                        currentUser.isLoggedIn 
+                        ? <Link to="/login" onClick={() => dispatch(setClickLogin(true))}>{currentUser.data.name} </Link> 
+                        : <Link to="/login" onClick={() => dispatch(setClickLogin(true))}> Вход </Link>
+                    }
+                    
+                </nav>
+
+                <nav className={`flex mobile-only ${navOpen}`}>
                     <Link to="/" onClick={navOpener}>Главная</Link>
                     <Link to="/parts" onClick={() => { dispatch(setClickLogin(false)); navOpener()}}>Ноты</Link>
                     <Link to="/audio" onClick={navOpener}>Аудио</Link>

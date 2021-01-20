@@ -1,3 +1,7 @@
+import { useDispatch, useSelector } from "react-redux"
+import { currentVideoUrl } from "../../../actions/video";
+import { RootState } from "../../../type";
+
 export interface VideoContentData {
     key: number
     name: string
@@ -7,16 +11,23 @@ export interface VideoContentData {
 export interface VideoContentProps {
     data: VideoContentData
     key: number
-    onSrcChange: (newSrc: string) => void
 }
 
 export const VideoContent = (props: VideoContentProps) => {
 
+    const videosState = useSelector(
+        (state: RootState) => state.videos
+    )
+
+    const dispatch = useDispatch();
+
     const srcChange = () => {
-        props.onSrcChange(props.data.src)
+        dispatch(currentVideoUrl(props.data.src))
     }
 
+
+
     return (
-        <p onClick={srcChange}>{props.data.name}</p>
+        <p onClick={srcChange} className={`${videosState.currentVideo === props.data.src && "headline"}`}>{props.data.name}</p>
     )
 }

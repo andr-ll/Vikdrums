@@ -1,10 +1,11 @@
-import { FetchVideosFailAct, FetchVideosPendingAct, FetchVideosSuccessAct, VideosActions } from "../actions/video";
+import { CurrentVideosUrlAct, FetchVideosFailAct, FetchVideosPendingAct, FetchVideosSuccessAct, VideosActions } from "../actions/video";
 import { VideosState } from "../type";
 
 const videosState: VideosState = {
     data: [],
     isLoading: false,
-    err: ''
+    err: '',
+    currentVideo: "https://www.youtube.com/embed/EuSqrA1TG1U"
 }
 
 export const videosReducer = (
@@ -22,6 +23,8 @@ export const videosReducer = (
             });
         case FetchVideosFailAct:
             return Object.assign({}, state, { err: action.payload, isLoading: false});
+        case CurrentVideosUrlAct:
+            return Object.assign({}, state, { currentVideo: action.payload })
         default:
             neverReached(action);
     }

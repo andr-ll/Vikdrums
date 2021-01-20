@@ -4,13 +4,9 @@ import { VideoContent, VideoContentData } from "./VideoContent"
 
 export interface CollectionsProps {
     collection: string
-    handlers: CollectionsHandlers
     content: VideoContentData[]
 }
 
-export interface CollectionsHandlers {
-    onSrcChange: (newSrc: string) => void
-}
 
 export const Collections = (props: CollectionsProps) => {
 
@@ -24,7 +20,6 @@ export const Collections = (props: CollectionsProps) => {
         <VideoContent
             data={item}
             key={item.key}
-            onSrcChange={props.handlers.onSrcChange}
         />)
 
     return (
