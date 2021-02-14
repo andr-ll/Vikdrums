@@ -15,6 +15,7 @@ export const Audio = () => {
 
     useEffect(() => {
         dispatch(fetchAudios())
+        return () => { }
     },[dispatch])
 
     const [audioSrc, setAudioSrc] = useState(" ");

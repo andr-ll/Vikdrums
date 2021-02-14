@@ -10,7 +10,8 @@ export const ProfilePage = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchUsers())
+        dispatch(fetchUsers());
+        return () => { }
     }, [dispatch])
 
     const currentUser = useSelector(

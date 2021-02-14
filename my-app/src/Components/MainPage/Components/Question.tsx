@@ -7,7 +7,8 @@ export const Question = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchEmail())
+        dispatch(fetchEmail());
+        return () => { }
     }, [dispatch])
 
     const emailData = useSelector(
@@ -32,7 +33,6 @@ export const Question = () => {
                 setEmailPlaced(' ');
                 setRegisteretEmail(false);
             }
-
         } else {
             setProperEmail(false)
         }
@@ -41,13 +41,11 @@ export const Question = () => {
 
     return (
         <section className="question">
-
             <div className="container">
                 {
-                    
-                    emailData.email !== "" ? <h3 className="added-email">Спасибо, ваш email отправлен!</h3> 
-
-                       : <div>
+                    emailData.email !== "" ?
+                        <h3 className="added-email">Спасибо, ваш email отправлен!</h3>
+                        : <div>
                             <h2>Возникли вопросы или eсть предложения?</h2>
                             <form className="mail" onSubmit={evt => { evt.preventDefault(); formSubmit() }}>
                                 <p>Oставьте свой e-mail - мы обязательно с вами свяжемся!</p>
@@ -62,7 +60,6 @@ export const Question = () => {
                                     registeredEmail && <span>Такой email уже зарегестрирован!</span>
                                 }
                             </form>
-
                         </div>
                 }
             </div>

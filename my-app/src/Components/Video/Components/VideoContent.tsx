@@ -25,8 +25,6 @@ export const VideoContent = (props: VideoContentProps) => {
         dispatch(currentVideoUrl(props.data.src))
     }
 
-
-
     return (
         <p onClick={srcChange} className={`${videosState.currentVideo === props.data.src && "headline"}`}>{props.data.name}</p>
     )

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchVideos } from '../../actions/fetchers/videoData';
 import { RootState } from '../../type';
@@ -10,26 +10,20 @@ export const Video = () => {
 
     const dispatch = useDispatch();
 
-    
     const videosState = useSelector(
         (state: RootState) => state.videos
     );
 
     useEffect(() => {
         dispatch(fetchVideos());
+        return () => { }
     },[dispatch])
-
-    const videoContent = videosState.data.map(item => <Collections 
-                            collection={item.collection} 
-                            content={item.content}
-                            key={item.id}
-                            />)
 
     return (
         <section className="video">
             <div className="container flex">
                 <div className="content flex">
-                    {videoContent}
+                    {videosState.data.map(item => <Collections collection={item.collection} content={item.content} key={item.id}/>)}
                 </div>
                 <div className="video-player">
                     <iframe 

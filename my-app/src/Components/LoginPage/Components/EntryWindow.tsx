@@ -14,7 +14,8 @@ export const EntryWindow = () => {
     )
 
     useEffect(() => {
-        dispatch(fetchUsers())
+        dispatch(fetchUsers());
+        return () => { }
     }, [dispatch])
 
     const [entry, setEntry] = useState(true);
@@ -54,9 +55,6 @@ export const EntryWindow = () => {
         } else {
             setInvalidLog(true);
         }
-
-
-
     }
 
     const regAction = (dataReg: RegistrationData) => {
@@ -71,8 +69,6 @@ export const EntryWindow = () => {
             }
             setIsLoading(false);
         }, 1000)
-
-
     }
 
     return (

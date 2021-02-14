@@ -16,19 +16,13 @@ export const Collections = (props: CollectionsProps) => {
         !contentVisible ? setContentVisible(true) : setContentVisible(false)
     }
 
-    const videoList = props.content.map(item =>
-        <VideoContent
-            data={item}
-            key={item.key}
-        />)
-
     return (
         <div className="video-collection flex">
             <h3 onClick={onCollectionClick} className={`${contentVisible && "headline"}`}>
                 {props.collection}
             </h3>
             <div className={`list ${contentVisible && "visible"}`} >
-                {videoList}
+                {props.content.map(item => <VideoContent data={item} key={item.key}/>)}
             </div>
         </div>
     )

@@ -18,7 +18,8 @@ export const Parts = () => {
     );
 
     useEffect(() => {
-        dispatch(fetchParts())
+        dispatch(fetchParts());
+        return () => { }
     }, [dispatch])
 
     const Collection = partsData.map(item => <PartsContainer
