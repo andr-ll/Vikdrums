@@ -1,8 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+// const path = require('path');
 
 const app = express();
-const port = 3003;
+const port = process.env.PORT || 3003;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -521,7 +522,7 @@ let users = [
 ]
 
 app.get('/', (req, res) => {
-    res.end('Everything is working here!')
+    res.send('Hello')
 })
 
 app.get('/users', (req, res) => {
