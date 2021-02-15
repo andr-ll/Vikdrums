@@ -10,20 +10,12 @@ interface CollectionHandlers {
     onAudioSrcChange: (src: string) => void
 }
 
-
 export const Collection = (props: CollectionProps) => {
-
-    const AudioContent = props.audio.map(item => <AudioWrapper 
-        data={item} 
-        handlers={props.handlers.onAudioSrcChange} 
-        key={item.id}
-        />)
-
     return (
         <div className="collection-wrapper">
             <h3>{props.name}</h3>
             <div className="grid">
-                {AudioContent}
+                {props.audio.map(item => <AudioWrapper data={item} handlers={props.handlers.onAudioSrcChange} key={item.id}/>)}
             </div>
         </div>
     )

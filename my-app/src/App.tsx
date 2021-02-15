@@ -17,11 +17,7 @@ import { About } from './Components/About/About';
 import { FullScreen } from './Components/FullScreen/FullScreen';
 // import { LoginPage } from './Components/LoginPage/LoginPage';
 
-
-
 export default function App() {
-
-
   return (
     <Router>
       <Header />

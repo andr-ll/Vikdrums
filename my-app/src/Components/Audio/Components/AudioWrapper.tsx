@@ -25,7 +25,6 @@ export const AudioWrapper = (props: AudioWrapperProps) => {
                         <button type="button" onClick={() => props.handlers(props.data.plus)}>Слушать</button>
                         <a href={props.data.plus} download>Скачать</a>
                     </div>
-
                 </div>
                 <div className="minus" >
                     <div className="labels">

@@ -24,13 +24,6 @@ export const Audio = () => {
         setAudioSrc(src)
     }
 
-    const AudioFiles = audioState.map(item => <Collection
-        name={item.name}
-        audio={item.audio}
-        handlers={{ onAudioSrcChange }}
-        key={item.id}
-    />)
-
     return (
         <section className="audio">
             <div className="container flex">
@@ -44,7 +37,7 @@ export const Audio = () => {
                     />
                 </div>
                 <div className="files flex">
-                    {AudioFiles}
+                    {audioState.map(item => <Collection name={item.name} audio={item.audio} handlers={{ onAudioSrcChange }} key={item.id}/>)}
                 </div>
             </div>
         </section>

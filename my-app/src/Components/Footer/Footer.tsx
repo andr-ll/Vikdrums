@@ -13,7 +13,7 @@ export const Footer = () => {
                         <i className="fab fa-youtube"></i>
                     </a>
                 </div>
-                <p>© Made by <a href="https://www.instagram.com/andr__ll" target="blank">Andr-II</a>, 2020</p>
+                <p>© Made by <a href="https://www.instagram.com/andr__ll" target="blank">Andr-II</a>, 2021</p>
             </div>
         </footer>
     )
