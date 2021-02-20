@@ -2,7 +2,6 @@
   "name": "vikdrums",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://andr-ll.github.io/Vikdrums/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
@@ -12,7 +11,6 @@
     "@types/react": "^16.14.4",
     "@types/react-dom": "^16.9.10",
     "@types/react-router-dom": "^5.1.6",
-    "gh-pages": "^3.1.0",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-audio-player": "^0.14.0",
@@ -29,9 +27,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build",
-    "predeploy": "npm run build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
