@@ -1,6 +1,7 @@
-import React from "react"
-import { useSelector } from "react-redux"
+import React, { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import { currentPartFullSize } from "../../state/actions/parts"
 // import { fetchUserAddPart, fetchUserRemovePart } from "../../state/actions/fetchers/usersData"
 import { RootState } from "../../type"
 
@@ -9,7 +10,12 @@ import './FullScreen.scss'
 
 export const FullScreen = () => {
 
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        let refPart = JSON.parse(sessionStorage.getItem("part") || "")
+        dispatch(currentPartFullSize(refPart))
+    }, [dispatch])
 
     const isClickFromLogin = useSelector(
         (state: RootState) => state.setClickFronLogin

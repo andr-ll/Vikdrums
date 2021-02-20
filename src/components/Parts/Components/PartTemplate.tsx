@@ -18,8 +18,14 @@ export const PartTemplate = (props: PartTemplateProps) => {
 
     const dispatch = useDispatch();
 
+    const onSelect = () => {
+        dispatch(currentPartFullSize(props.data))
+        let currentPart = JSON.stringify(props.data)
+        sessionStorage.setItem("part", currentPart)
+    }
+
     return (
-        <Link to="/fullscreen" className="part-wrapper" onClick={() => dispatch(currentPartFullSize(props.data))}>
+        <Link to="/fullscreen" className="part-wrapper" onClick={onSelect}>
             <div className="part flex">
                 <img src={props.data.src} alt="img" />
                 <p>{props.data.name}</p>
