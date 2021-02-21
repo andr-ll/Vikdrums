@@ -32,11 +32,11 @@ export const Audio = () => {
         <section className="audio">
             <div className="container flex">
                 <div className="player-container flex">
-                    { audioSrc && <ReactAudioPlayer className="player" src={audioSrc} autoPlay controls /> }
+                    {audioSrc && <ReactAudioPlayer className="player" src={audioSrc} autoPlay controls />}
                 </div>
-                <div className="files flex">
-                    {audioData.map((item, id) => <Collection data={item} handlers={{ onAudioSrcChange }} key={id}/>)}
-                </div>
+
+                {audioData.map((item, id) => <Collection data={item} handlers={{ onAudioSrcChange }} key={id} />)}
+
             </div>
         </section>
     )

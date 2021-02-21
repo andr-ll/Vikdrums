@@ -90,14 +90,24 @@
 
 @media (max-width: 900px) {
     .video {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
         .container {
             flex-direction: column-reverse;
             justify-content: flex-end;
             padding: unset;
-            min-height: 87vh;
+            overflow-y: auto;
+            flex-grow: 1;
+            // min-height: 500px;
     
             .content {
                 width: 96vw;
+                overflow-y: scroll;
+                max-height: 53vh;
+                flex-grow: 1;
             }
     
             .video-player {
@@ -105,12 +115,11 @@
                 height: 230px;
                 background-color: #F4F4FF;
                 align-items: center;
-                position: sticky;
-                top: 0px;
+                position: unset;
     
                 iframe {
-                    position: unset;
                     height: 200px;
+                    z-index: 5;
                 }
             }
     
