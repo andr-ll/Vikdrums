@@ -16,7 +16,7 @@ export const AudioWrapper = (props: AudioWrapperProps) => {
         <div className="audio-wrapper flex">
             <h3>{props.data.name}</h3>
             <div className="flex">
-                <div className="plus">
+                {/* <div className="plus">
                     <div className="labels">
                         <h4>Плюс</h4>
                         <i className="fas fa-music"></i>
@@ -25,7 +25,7 @@ export const AudioWrapper = (props: AudioWrapperProps) => {
                         <button type="button" onClick={() => props.handlers(props.data.plus)}>Слушать</button>
                         <a href={props.data.plus} download>Скачать</a>
                     </div>
-                </div>
+                </div> */}
                 <div className="minus" >
                     <div className="labels">
                         <h4>Минус</h4>

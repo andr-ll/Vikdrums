@@ -20,6 +20,7 @@ export const PartTemplate = (props: PartTemplateProps) => {
 
     const onSelect = () => {
         dispatch(currentPartFullSize(props.data))
+        window.scrollTo(0, 0)
         let currentPart = JSON.stringify(props.data)
         sessionStorage.setItem("part", currentPart)
     }

@@ -63,7 +63,7 @@
                 height: fit-content;
                 pointer-events: all;
                 opacity: 1;
-                transition: all .5s ease-in;
+                // transition: all .5s ease-in;
 
                 p {
                     margin-bottom: 10px;
@@ -106,7 +106,7 @@
             .content {
                 width: 96vw;
                 overflow-y: scroll;
-                max-height: 53vh;
+                max-height: 50vh;
                 flex-grow: 1;
             }
     

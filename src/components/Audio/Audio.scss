@@ -80,9 +80,11 @@
             .plus,
             .minus {
                 display: flex;
-                justify-content: space-around;
+                justify-content: space-between;
+                flex-direction: column;
                 text-align: center;
                 width: 90%;
+                height: 130px;
 
                 i {
                     font-size: 30px;
@@ -104,6 +106,10 @@
                     justify-content: space-around;
                     align-items: center;
                     color: black;
+
+                    button {
+                        margin-bottom: 10px;
+                    }
 
                     a, button {
                         border: 1px solid black;
@@ -127,13 +133,18 @@
 
 @media (max-width: 900px) {
     .audio {
+        flex-grow: unset;
+        height: 85vh;
+        overflow: scroll;
 
         .player-container {
+
             .player {
                 width: 94%;
-                outline: transparent;
+                outline: none;
                 border: unset;
                 border-radius: unset;
+                margin: 10px auto;
             }
         }
 

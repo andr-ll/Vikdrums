@@ -21,7 +21,12 @@ export const Collection = (props: CollectionProps) => {
         <div className="collection-wrapper">
             <h3>{props.data.name}</h3>
             <div className="grid">
-                {props.data.audio.map(item => <AudioWrapper data={item} handlers={props.handlers.onAudioSrcChange} key={item.id}/>)}
+                {props.data.audio.map(item =>
+                    <AudioWrapper
+                        data={item}
+                        handlers={props.handlers.onAudioSrcChange}
+                        key={item.id} />
+                )}
             </div>
         </div>
     )
