@@ -1,8 +1,5 @@
-// import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-// import { fetchVideos } from '../../state/actions/fetchers/videoData';
 import { RootState } from '../../type';
-// import VideoData from '../../Data/VideoData';
 
 import React from 'react';
 import { videoData } from '../../mockdata/videoData';
@@ -11,16 +8,9 @@ import './Video.scss';
 
 export const Video = () => {
 
-    // const dispatch = useDispatch();
-
     const videosState = useSelector(
         (state: RootState) => state.videos
     );
-
-    // useEffect(() => {
-    //     dispatch(fetchVideos());
-    //     return () => { }
-    // },[dispatch])
 
     return (
         <section className="video">

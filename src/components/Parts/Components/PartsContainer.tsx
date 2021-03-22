@@ -1,13 +1,9 @@
-import React from "react"
 import { PartTemplate, PartTemplateData } from "./PartTemplate"
-
-
 
 interface PartsContainerProps {
     name: string
     parts: PartTemplateData[]
 }
-
 
 export const PartsContainer = (props: PartsContainerProps) => {
     return (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { AboutParts } from './Components/AboutParts';
 import { AudioFeatures } from './Components/MediaFeatures';
 import { Question } from './Components/Question';
@@ -13,8 +13,6 @@ export const MainPage = () => {
         window.addEventListener('scroll', () => {
             setWindowScroll(+window.pageYOffset);
         });
-
-
         return () => {
             window.removeEventListener('scroll', () => { })
             setWindowScroll(0);

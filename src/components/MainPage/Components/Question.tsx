@@ -6,11 +6,6 @@ import { RootState } from "../../../type"
 export const Question = () => {
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     dispatch(fetchEmail());
-    //     return () => { }
-    // }, [dispatch])
-
     const emailData = useSelector(
         (state: RootState) => state.emails.data
     )

@@ -14,7 +14,6 @@ import { Parts } from './components/Parts/Parts';
 import { Audio } from './components/Audio/Audio';
 import { About } from './components/About/About';
 import { FullScreen } from './components/FullScreen/FullScreen';
-// import { LoginPage } from './Components/LoginPage/LoginPage';
 
 import './App.scss';
 
@@ -23,25 +22,22 @@ export default function App() {
     <Router>
       <Header />
       <Switch>
-        <Route path="/video">
+        <Route path="/video" exact>
           <Video />
         </Route>
-        <Route path="/parts">
+        <Route path="/parts" exact>
           <Parts />
         </Route>
-        <Route path="/audio">
+        <Route path="/audio" exact>
           <Audio />
         </Route>
-        <Route path="/about">
+        <Route path="/about" exact>
           <About />
         </Route>
-        {/* <Route path="/login" >
-          <LoginPage />
-        </Route> */}
-        <Route path="/fullscreen">
+        <Route path="/fullscreen" exact>
           <FullScreen />
         </Route>
-        <Route path="/">
+        <Route path="/" exact>
           <MainPage />
         </Route>
         <Redirect to="/" />

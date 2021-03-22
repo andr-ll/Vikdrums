@@ -1,4 +1,3 @@
-import React from "react"
 import { MediaCard } from "./MediaCard"
 
 interface AudioFeaturesProps {
