@@ -10,7 +10,7 @@ export const PartsContainer = (props: PartsContainerProps) => {
         <div className="parts-container">
             <h2>{props.name}</h2>
             <div className="grid">
-                { props.parts.map((item, id) => <PartTemplate data={item} key={id} />) }
+                { props.parts.map((item, id) => <PartTemplate data={item} book={props.name} key={id} />) }
             </div>
         </div>
     )

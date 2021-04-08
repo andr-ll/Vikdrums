@@ -34,7 +34,7 @@ export default function App() {
         <Route path="/about" exact>
           <About />
         </Route>
-        <Route path="/fullscreen" exact>
+        <Route path="/parts/:book/:id" exact>
           <FullScreen />
         </Route>
         <Route path="/" exact>

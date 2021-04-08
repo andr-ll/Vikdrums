@@ -52,7 +52,7 @@ export const Header = () => {
                 </nav>
                 <div className="logo-and-name flex">
                     <h1>Vikdrums</h1>
-                    <img src="./assets/img/sticks.png" alt="img" />
+                    <img src="/assets/img/sticks.png" alt="img" />
                 </div>
                 <div className="social-links flex">
                     <a href="/" target="blank">

@@ -1,25 +1,26 @@
-import React, { useEffect } from "react"
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { currentPartFullSize } from "../../state/actions/parts"
-// import { fetchUserAddPart, fetchUserRemovePart } from "../../state/actions/fetchers/usersData"
 import { RootState } from "../../type"
-
-
+import {partsData} from '../../mockdata/partsData'
 import './FullScreen.scss'
 
 export const FullScreen = () => {
 
+    window.scrollTo(0, 0)
     const dispatch = useDispatch();
+    const params: { book: string, id: string } = useParams()
 
     useEffect(() => {
-        let refPart = JSON.parse(sessionStorage.getItem("part") || "")
-        dispatch(currentPartFullSize(refPart))
-    }, [dispatch])
+        const book = partsData.find((item) => item.name === params.book)
+        const part = book?.parts.find(item => item.id.toString() === params.id)
+        if (part) dispatch(currentPartFullSize(part))
+    }, [dispatch, params.book, params.id])
 
     const currentPart = useSelector(
         (state: RootState) => state.parts.currentParts
-    )
+    )    
 
     return (
         <div className="full-screen container flex">

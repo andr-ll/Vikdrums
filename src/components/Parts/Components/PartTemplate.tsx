@@ -1,7 +1,4 @@
-import React from "react"
-import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
-import { currentPartFullSize } from "../../../state/actions/parts";
 
 export interface PartTemplateData {
     id: number
@@ -12,21 +9,12 @@ export interface PartTemplateData {
 
 export interface PartTemplateProps {
     data: PartTemplateData
+    book: string
 }
 
 export const PartTemplate = (props: PartTemplateProps) => {
-
-    const dispatch = useDispatch();
-
-    const onSelect = () => {
-        dispatch(currentPartFullSize(props.data))
-        window.scrollTo(0, 0)
-        let currentPart = JSON.stringify(props.data)
-        sessionStorage.setItem("part", currentPart)
-    }
-
     return (
-        <Link to="/fullscreen" className="part-wrapper" onClick={onSelect}>
+        <Link to={`/parts/${props.book}/${props.data.id}`} className="part-wrapper" >
             <div className="part flex">
                 <img src={props.data.src} alt="img" />
                 <p>{props.data.name}</p>
